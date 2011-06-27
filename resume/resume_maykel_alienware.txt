@@ -1,0 +1,43 @@
+Maykel Suarez
+19530 Belview Dr, Miami, FL 33157
+(786) 797-3547 mikemps@gmail.com
+
+Objective
+
+Results driven .Net developer seeks to excel inside a company that delivers high quality software. Holds keen understanding and passion for Agile processes, Test Driven Development and Domain Driven Development. Enjoys founding solid User Experiences supported by Software Patterns.  
+
+Experience
+
+May 2004 to present Alienware, Miami, FL - Software Developer / Engineer. Started in the back-end team managing several company wide applications. Recently moved to the labs team that ships solutions to company’s customers.
+
+. Served as Agile Coach during the team’s adoption of Scrum.
+. Configured the Continuous Integration environment with MS Team Server
+. Raised the QA bar by driving acceptance tests of WPF with White
+. Defined a set of Implementation Patterns to help the team assimilate BDD (NMocks, RhinoMocks)
+. Introduced Unit Testing as effective task Assertions for offshore programmers to implement (MSTest)
+. Optimized the PC factory process reducing the integration time per computer by 25 percent (C++ Builder, MSSQL)
+. Reengineered a legacy Account Manager system into OrderManager in four months using a Smart UI Anti-Pattern (C++, C#)
+. Led the team to re-factor the Smart UI into MVP, delivering simultaneously a Smart Client and a Web Interface (C#, ASP.Net)
+. Deployed Web Services to act as Repository for the data (C#, SOA, MSSQL)
+. Migrated the Intranet into Sharepoint remapping the DB structure and conserving all historic information (ASP.Net, MSSQL)
+. Designed a custom Workflow Engine for Sharepoint (C#)
+
+Consultant
+
+May 2007 to Mar 2008 www.e-spare.ca. Concurrently working with a distributed team (Miami/Toronto) developing a Java Web App.
+
+. Used Hibernate to decouple POJOs from the DB
+. Orchestrated the UI flow leveraging on Spring-MVC
+. Enriched the user experience by adding AJAX (YUI AjaxAnywhere)
+. Achieved uniform cross-browser page layout with DHTML and CSS
+
+2002-2003 University of Miami, FL. Developed a budget tracking application for the Admission Office. (Rational Rose, VB, VBA, Access 2000)
+
+2001-2002 www.grocerytaxi.com, Miami, FL. Refactored the website from HTML into ASP.
+
+1998-2000 Panautos, Havana, Cuba. Automated a car rental process. (Delphi, MS SQL)
+
+Education
+
+2001-2003 University of Miami, FL – BS Computer Science
+1994-2000 University of Havana, Cuba – BS Computer Science
