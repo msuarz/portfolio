@@ -35,8 +35,31 @@ namespace Features
         public static bool Matches(this object Expected, object Actual)
         {
             return Expected.GetType().GetProperties()
-                .Where(x => Expected.Get(x).HasValue())
+                .Where(x => x.PropertyType.IsSimple() 
+                    && Expected.Get(x).HasValue())
                 .All(x => Actual.Get(x).Equals(Expected.Get(x)));
+        }
+
+        public static string Join(this IEnumerable<string> Values, string Separator) 
+        {
+            return String.Join(Separator, Values);
+        }
+
+        public static bool IsSimple(this Type Type)
+        {
+            return Type.IsPrimitive || Type.Equals(typeof(string));
+        }
+
+        public static string AsString(this object O)
+        {
+            return 
+                "[ " + 
+                O.GetType().GetProperties()
+                .Where(x => x.PropertyType.IsSimple() 
+                    && O.Get(x).HasValue())
+                .Select(x => x.Name + ": " + O.Get(x))
+                .Join(", ") + 
+                " ]";
         }
 
         public static void Update(this object Expected, object Actual)

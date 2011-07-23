@@ -17,9 +17,15 @@ namespace Features
             return Response.Results;
         }
 
-        public void Addresses(Address Address)
+        public void Addresses(Address Address) 
         {
-            Assert.IsTrue(DTOs.Any(Address.Matches));
+            var Error = 
+                "Could not find Address".Ln() + 
+                    Address.AsString().Ln() +
+                "Addresses found (" + DTOs.Count() + "): ".Ln() + 
+                    DTOs.Select((x, i) => (i+1) + ". " + x.AsString()).Join("".Ln());
+
+            Assert.IsTrue(DTOs.Any(Address.Matches), Error);
         }
 
         protected override IEnumerable<Address> DTOs { get { return EmployeesFound.SelectMany(x => x.Addresses); } }
