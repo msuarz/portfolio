@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MbUnit.Framework;
 using UltimateSoftware.Foundation.Services.Common.Tests;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests;
 using Environment = System.Environment;
@@ -58,6 +59,13 @@ namespace Features
                     O.AsString().Ln() +
                 O.GetType().Name.Pluralize() + " found (" + Objects.Count() + "): ".Ln() + 
                     Objects.Select((x, i) => (i+1) + ". " + x.AsString()).Join("".Ln());
+        }
+
+        public static void ShouldContain(this IEnumerable<object> Items, object Item)
+        {
+            if (Items.Any(Item.Matches)) return;
+            
+            Assert.Fail(Item.NotFoundIn(Items));
         }
 
         public static string AsString(this object O)

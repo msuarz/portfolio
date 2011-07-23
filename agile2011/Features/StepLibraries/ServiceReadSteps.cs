@@ -37,12 +37,7 @@ namespace Features
 
         public void Employees(EmployeeDTO Employee)
         {
-            var Error = 
-                "Could not find Employee " + Employee.Name().Ln() +
-                "Employees Found:".Ln() +
-                    String.Join("".Ln(), EmployeesFound.Select(x => x.Name()));
-
-            Assert.IsTrue(EmployeesFound.Any(Employee.Matches), Error);
+            EmployeesFound.ShouldContain(Employee);
         }
     }
 }

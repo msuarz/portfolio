@@ -48,8 +48,7 @@ namespace Features
 
         protected void AssertFound(DTO DTO)
         {
-            if (!DTOs.Any(DTO.Matches))
-                Assert.Fail(DTO.NotFoundIn(DTOs));
+            DTOs.ShouldContain(DTO);
         }
     }
 }
