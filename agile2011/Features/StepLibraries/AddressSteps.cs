@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MbUnit.Framework;
-using UltimateSoftware.Foundation.Services.AddressDomain.WcfTypes;
+﻿using UltimateSoftware.Foundation.Services.AddressDomain.WcfTypes;
 using UltimateSoftware.Foundation.Services.Core.Query;
 
 namespace Features
@@ -19,15 +16,7 @@ namespace Features
 
         public void Addresses(Address Address) 
         {
-            var Error = 
-                "Could not find Address".Ln() + 
-                    Address.AsString().Ln() +
-                "Addresses found (" + DTOs.Count() + "): ".Ln() + 
-                    DTOs.Select((x, i) => (i+1) + ". " + x.AsString()).Join("".Ln());
-
-            Assert.IsTrue(DTOs.Any(Address.Matches), Error);
+            AssertFound(Address);
         }
-
-        protected override IEnumerable<Address> DTOs { get { return EmployeesFound.SelectMany(x => x.Addresses); } }
     }
 }

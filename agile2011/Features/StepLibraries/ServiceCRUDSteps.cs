@@ -12,11 +12,6 @@ namespace Features
         where EmployeeDTO : class 
         where DTO : class
     {
-        protected virtual IEnumerable<DTO> DTOs
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         protected virtual EmployeeDTO[] Find(EmployeeQuery Query)
         {
             throw new NotImplementedException();

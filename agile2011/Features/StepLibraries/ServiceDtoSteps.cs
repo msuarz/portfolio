@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using MbUnit.Framework;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests;
@@ -31,6 +33,23 @@ namespace Features
             Clone.Set("EmployeeIdentifier", Original.Get("EmployeeIdentifier").As<EmployeeIdentifier>().Clone());
 
             return Clone;
+        }
+
+        protected static readonly string DTOName = typeof (DTO).Name;
+        protected static readonly string DTOsName = DTOName.Pluralize();
+
+        protected IEnumerable<DTO> DTOs
+        {
+            get
+            {
+                return EmployeesFound.SelectMany(x => (DTO[]) x.Get(DTOsName));
+            }
+        }
+
+        protected void AssertFound(DTO DTO)
+        {
+            if (!DTOs.Any(DTO.Matches))
+                Assert.Fail(DTO.NotFoundIn(DTOs));
         }
     }
 }

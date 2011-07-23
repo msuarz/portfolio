@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UltimateSoftware.Foundation.Services.Common.Tests;
+using UltimateSoftware.Foundation.Services.Acceptance.Tests;
 using Environment = System.Environment;
 
 namespace Features 
@@ -48,6 +49,15 @@ namespace Features
         public static bool IsSimple(this Type Type)
         {
             return Type.IsPrimitive || Type.Equals(typeof(string));
+        }
+
+        public static string NotFoundIn(this object O, IEnumerable<object> Objects)
+        {
+            return 
+                "Could not find " + O.GetType().Name.Ln() + 
+                    O.AsString().Ln() +
+                O.GetType().Name.Pluralize() + " found (" + Objects.Count() + "): ".Ln() + 
+                    Objects.Select((x, i) => (i+1) + ". " + x.AsString()).Join("".Ln());
         }
 
         public static string AsString(this object O)
