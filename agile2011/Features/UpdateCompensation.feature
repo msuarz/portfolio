@@ -4,8 +4,8 @@
 Scenario: Update based on Scheduled hours
 
 	Original
-	[ Scheduled Hours | Hourly | Weekly | Period | Annual ]
-	| 80              |  24    | 900    | 2000   | 50000  |
+	[ Scheduled Hours | Rate Change Type | Annual ]
+	| 80              | Y                | 50000  |
 
 	Proposed
 	[ Scheduled Hours ]
@@ -14,24 +14,24 @@ Scenario: Update based on Scheduled hours
 	Update
 
 	Actual
-	[ Scheduled Hours | Hourly | Weekly | Period | Annual ]
-	| 40              |  24    | 450    | 1000   | 25000  |
+	[ Scheduled Hours | Annual ]
+	| 40              | 25000  |
 
 Scenario: Update Scheduled Hours and Rate Fields
 
 	Original
-	[ Scheduled Hours | Hourly | Annual ]
-	| 40			  | 24	   | 25000  |
+	[ Scheduled Hours | Hourly | Annual | PayFrequency ]
+	| 40			  | 25	   | 52000  | W			   |
 
 	Proposed
-	[ Scheduled Hours | Hourly | Rate Change Type ]
-	| 20			  | 48	   | H				  |
+	[ Scheduled Hours | Hourly ]
+	| 20			  | 50	   |
 
 	Update
 
 	Actual
 	[ Scheduled Hours | Hourly | Annual ]
-	| 20			  | 48	   | 25000  |
+	| 20			  | 50	   | 52000  |
 
 Scenario: Update based on Percentages
 

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using MbUnit.Framework;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests;
 using UltimateSoftware.Foundation.Services.Common.Tests;
 using UltimateSoftware.Foundation.Services.Core;
@@ -18,13 +17,33 @@ namespace Features
         protected DTO original;
         protected DTO proposed;
 
-        public void Original(DTO Entity) { Assert.IsTrue(Entity.Matches(original)); }
+        public virtual void Original(DTO DTO)
+        {
+            DTO.Update(proposed);
+            
+            EnsureUpdate(proposed);
+            
+            proposed = Clone(actual);
 
-        public void Proposed(DTO Entity) { Entity.Update(proposed); }
+            ClearWriteOnlyFields(DTO);
+            
+            DTO.ShouldMatch(proposed);
+        }
 
-        public void Actual(DTO Entity) { Assert.IsTrue(Entity.Matches(actual)); }
+        public void Proposed(DTO DTO)
+        {
+            DTO.Update(proposed);
+        }
 
-        protected DTO actual { get { return Get(proposed); } }
+        public void Actual(DTO DTO)
+        {
+            DTO.ShouldMatch(actual);
+        }
+
+        protected DTO actual
+        {
+            get { return Get(original); }
+        }
 
         protected virtual DTO Clone(DTO Original) 
         {
@@ -50,5 +69,7 @@ namespace Features
         {
             DTOs.ShouldContain(DTO);
         }
+
+
     }
 }

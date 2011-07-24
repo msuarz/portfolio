@@ -10,6 +10,11 @@ namespace Features
 {
     public static class Extensions 
     {
+        public static bool IsEmpty(this string s)
+        {
+            return string.IsNullOrWhiteSpace(s);
+        }
+
         public static void ForEach<T>(this IEnumerable<T> Items, Action<T> Do)
         {
             foreach (var Item in Items) Do(Item);
@@ -39,7 +44,14 @@ namespace Features
             return Expected.GetType().GetProperties()
                 .Where(x => x.PropertyType.IsSimple() 
                     && Expected.Get(x).HasValue())
-                .All(x => Actual.Get(x).Equals(Expected.Get(x)));
+                .All(x => Actual.Get(x).IsEqualTo(Expected.Get(x)));
+        }
+
+        public static bool IsEqualTo(this object One, object Another)
+        {
+            return 
+                One is decimal ? Math.Abs((decimal)One - (decimal)Another) < 1 :
+                One.Equals(Another);
         }
 
         public static string Join(this IEnumerable<string> Values, string Separator) 
@@ -49,7 +61,9 @@ namespace Features
 
         public static bool IsSimple(this Type Type)
         {
-            return Type.IsPrimitive || Type.Equals(typeof(string));
+            return Type.Equals(typeof(string)) 
+                || Type.IsValueType 
+                || Type.IsPrimitive;
         }
 
         public static string NotFoundIn(this object O, IEnumerable<object> Objects)
@@ -66,6 +80,15 @@ namespace Features
             if (Items.Any(Item.Matches)) return;
             
             Assert.Fail(Item.NotFoundIn(Items));
+        }
+
+        public static void ShouldMatch(this object One, object Another)
+        {
+            if (One.Matches(Another)) return;
+            
+            Assert.Fail(
+                "Expected: " + One.AsString().Ln() +
+                "Actual: " + Another.AsString().Ln());
         }
 
         public static string AsString(this object O)
@@ -90,7 +113,9 @@ namespace Features
         public static bool HasValue(this object O)
         {
             return 
-                O is string ? (O as string).HasValue() : 
+                O is string ? (O as string).HasValue() :
+                O is DateTime ? (DateTime)O != default(DateTime) :
+                O is decimal ? (decimal) O != 0 :
                 O != null;
         }
 

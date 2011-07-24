@@ -17,45 +17,37 @@ namespace Features
                 Value = AltValue;
             }
 
-            AssertCanUpdate(proposed, Field, Value);
+            AssertCanUpdate(Field, Value);
         }
 
-        protected void AssertCanUpdate(DTO Original, string Field, object Value)
+        protected void AssertCanUpdate(string Field, object Value)
         {
-            var Proposed = Clone(Original);
+            proposed.Set(Field, Value);
 
-            EnsureUpdate(Proposed, Field, Value);
+            EnsureUpdate(proposed);
 
             try
             {
                 var Error = EmployeeNumber + " could not set " + Field + " to " + (Value ?? "null");
 
-                var ActualValue = Get(Original).Get(Field);
-
-                Assert.AreNotEqual(Proposed.Get(Field), ActualValue, Error);
+                Assert.AreNotEqual(original.Get(Field), actual.Get(Field), Error);
             }
             finally
             {
-                EnsureUpdate(Original);
+                Restore();
             }
-        }
-
-        protected void EnsureUpdate(DTO Proposed, string Field, object Value)
-        {
-            Proposed.Set(Field, Value);
-            EnsureUpdate(Proposed);
-        }
-
-        protected void EnsureUpdate(DTO Proposed)
-        {
-            var Response = Update(Proposed);
-
-            if (Response.HasErrors) Assert.Fail(EmployeeNumber + Response.Message());
         }
 
         protected virtual void Restore()
         {
             EnsureUpdate(original);
+        }
+
+        protected void EnsureUpdate(DTO DTO)
+        {
+            var Response = Update(DTO);
+
+            if (Response.HasErrors) Assert.Fail(EmployeeNumber + Response.Message());
         }
     }
 }

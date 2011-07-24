@@ -56,6 +56,7 @@
     <Reference Include="UltimateSoftware.WcfTypes.Base" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Test.cs" />
     <Compile Include="StepLibraries\AddressSteps.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="FindAddress.runner.cs">
@@ -69,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepLibraries\CompensationSteps.cs" />
     <Compile Include="StepLibraries\JobSteps.cs" />
+    <Compile Include="StepLibraries\ServiceCRUDSetup.cs" />
     <Compile Include="StepLibraries\ServiceCRUDSteps.cs" />
     <Compile Include="StepLibraries\ServiceDtoSteps.cs" />
     <Compile Include="StepLibraries\ServiceReadSteps.cs" />

@@ -14,9 +14,7 @@ namespace Features
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
                     ScheduledHours = 80,        
-                    Hourly = 24,        
-                    Weekly = 900,        
-                    Period = 2000,        
+                    RateChangeType = "Y",        
                     Annual = 50000
                 });        
             Proposed(        
@@ -29,9 +27,6 @@ namespace Features
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
                     ScheduledHours = 40,        
-                    Hourly = 24,        
-                    Weekly = 450,        
-                    Period = 1000,        
                     Annual = 25000
                 });
         }
@@ -43,23 +38,23 @@ namespace Features
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
                     ScheduledHours = 40,        
-                    Hourly = 24,        
-                    Annual = 25000
+                    Hourly = 25,        
+                    Annual = 52000,        
+                    PayFrequency = "W"
                 });        
             Proposed(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
                     ScheduledHours = 20,        
-                    Hourly = 48,        
-                    RateChangeType = "H"
+                    Hourly = 50
                 });        
             Update();        
             Actual(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
                     ScheduledHours = 20,        
-                    Hourly = 48,        
-                    Annual = 25000
+                    Hourly = 50,        
+                    Annual = 52000
                 });
         }
         

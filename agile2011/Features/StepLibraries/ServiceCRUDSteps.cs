@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using AutoMapper;
-using MbUnit.Framework;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests.Features;
 using UltimateSoftware.Foundation.Services.Core;
 using UltimateSoftware.Foundation.Services.Core.Query;
@@ -27,32 +24,6 @@ namespace Features
             throw new NotImplementedException();
         }
 
-        protected EmployeeDTO[] Suts { get; set; }
-
-        public override void FixtureSetUp()
-        {
-            base.FixtureSetUp();
-            Mapper.CreateMap<DTO, DTO>();
-        }    
-
-        public override void SetUp()
-        {
-            base.SetUp();
-
-/*
-            if (Suts.Length == 0)
-            {
-                return;
-            }
-
-            var random = new Random().Next(Suts.Length);
-
-            Original = ((TObject[])Suts[random].Get(typeof(TObject).Name.Pluralize()))[0];
-
-            Proposed = Clone(Original);
-
-            Console.WriteLine(EmployeeNumber);
-*/
-        }
+        protected virtual void ClearWriteOnlyFields(DTO DTO) {}
     }
 }
