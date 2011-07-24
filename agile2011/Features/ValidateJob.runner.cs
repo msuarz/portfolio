@@ -13,33 +13,26 @@ namespace Features
             Original(        
                 new UltimateSoftware.Foundation.Services.JobDomain.WcfTypes.Job
                 {        
-                    PayGroup = "BIWEEKLY"
+                    OrgLevel1 = "EAST"
                 });        
             Proposed(        
                 new UltimateSoftware.Foundation.Services.JobDomain.WcfTypes.Job
                 {        
-                    PayGroup = "bad value"
+                    OrgLevel1 = "bad value"
                 });        
             Update();        
             Actual(        
                 new UltimateSoftware.Foundation.Services.JobDomain.WcfTypes.Job
                 {        
-                    PayGroup = "BIWEEKLY"
+                    OrgLevel1 = "EAST"
                 });        
-            Status(        
-                new UltimateSoftware.Foundation.Services.Core.Result
-                {        
-                    Success = false
-                });        
-            Messages
-            (        
-                        
+            Status("Success", false);        
+            Messages(        
                 new UltimateSoftware.Foundation.Services.Core.OperationMessage
                 {        
-                    PropertyName = "RateChangeType",        
+                    PropertyName = "OrgLevel1",        
                     Message = "Lookup code does not exist."
-                }
-            );
+                });
         }
         
         [Test]
@@ -48,8 +41,8 @@ namespace Features
             Validate("PayGroup", "", "The following field is required:");        
             Validate("PayGroup", "01X", "Lookup code does not exist.");        
             Validate("TimeClock", "1234567890", "Parameter exceeds maximum length.");        
-            Validate("ScheduledHours", -1, "Value is not within valid range");        
-            Validate("ScheduledHours", 100000000, "Value is not within valid range");
+            Validate("ScheduledHours", -1m, "Value is not within valid range");        
+            Validate("ScheduledHours", 100000000m, "Value is not within valid range");
         }
         
         [Test]

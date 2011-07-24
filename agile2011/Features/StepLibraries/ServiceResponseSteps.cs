@@ -14,14 +14,14 @@ namespace Features
         protected Result OperationResult;
         protected IStatus status;
 
+        protected IEnumerable<OperationMessage> messages
+        {
+            get { return Results.SelectMany(x => x.Messages); }
+        }
+
         protected IEnumerable<string> ErrorMessages
         {
-            get
-            {
-                return Results
-                    .SelectMany(x => x.Messages)
-                    .Select(x => x.AsString());
-            }
+            get { return messages.Select(x => x.AsString()); }
         }
 
         protected string ErrorMessage
@@ -45,7 +45,12 @@ namespace Features
 
         public void Status(Result Result)
         {
-            Assert.IsTrue(Result.Matches(OperationResult));    
+            Result.ShouldMatch(status);
+        }
+
+        public void Status(string Field, object Value)
+        {
+            Assert.AreEqual(Value, status.Get(Field));
         }
 
         public void OperationStatus(Result Result)
@@ -53,9 +58,9 @@ namespace Features
             Assert.IsTrue(Result.Matches(OperationResult));    
         }
 
-        public void Messages(params OperationMessage[] Messages)
+        public void Messages(OperationMessage Message)
         {
-            Assert.IsTrue(Messages.All(x => OperationResult.Messages.Any(x.Matches)));
+            messages.ShouldContain(Message);
         }
     }
 }
