@@ -1,12 +1,19 @@
-using System.Collections.Generic;
 using System.Linq;
 using MbUnit.Framework;
+using UltimateSoftware.Foundation.Services.Common.Tests;
 using UltimateSoftware.Foundation.Services.Core.Query;
 
 namespace Features
 {
     public partial class ServiceCRUDSteps<Service, DTO, EmployeeDTO>
     {
+        protected DTO Get(DTO Original)
+        {
+            return ((DTO[]) Call(x => x.Call(
+                "Get" + DTOName + "ByEmployeeIdentifier",
+                Original.Get("EmployeeIdentifier"))).Get("Results"))[0];
+        }
+
         protected EmployeeQuery query;
         
         public void Query(EmployeeQuery Query) { query = Query; }

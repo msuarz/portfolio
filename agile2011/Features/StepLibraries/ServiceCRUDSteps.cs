@@ -1,4 +1,3 @@
-using System;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests.Features;
 
 namespace Features
@@ -7,11 +6,5 @@ namespace Features
         where EmployeeDTO : class 
         where DTO : class
     {
-        protected virtual DTO Get(DTO Original)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected virtual void ClearWriteOnlyFields(DTO DTO) {}
     }
 }

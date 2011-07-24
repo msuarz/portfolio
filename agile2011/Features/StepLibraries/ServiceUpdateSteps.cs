@@ -5,7 +5,8 @@ namespace Features
 {
     public partial class ServiceCRUDSteps<Service, DTO, EmployeeDTO>
     {
-        protected virtual void SetUpUpdate(DTO Proposed) { }
+        protected virtual void SetUpUpdate(DTO Proposed) {}
+        protected virtual void ClearWriteOnlyFields(DTO Actual) {}
 
         public void Update()
         {
