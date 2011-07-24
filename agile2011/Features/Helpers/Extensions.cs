@@ -28,6 +28,11 @@ namespace Features
                 .Join(string.Empty);
         }
 
+        public static IEnumerable<string> CamelCase(this IEnumerable<string> Words) 
+        {
+            return Words.Select(x => x.CamelCase());
+        }
+
         public static string Ln(this string Line) 
         {
             return Line + Environment.NewLine;
@@ -42,10 +47,21 @@ namespace Features
 
         public static bool Matches(this object Expected, object Actual)
         {
+            if (Expected.GetType() != Actual.GetType()) 
+                return Expected.DynamicMatches(Actual);
+
             return Expected.GetType().GetProperties()
                 .Where(x => x.PropertyType.IsSimple() 
                     && Expected.Get(x).HasValue())
                 .All(x => Actual.Get(x).IsEqualTo(Expected.Get(x)));
+        }
+
+        public static bool DynamicMatches(this object Expected, object Actual)
+        {
+            return Expected.GetType().GetProperties()
+                .Where(x => x.PropertyType.IsSimple() 
+                    && Expected.Get(x).HasValue())
+                .All(x => Actual.Get(x.Name).IsEqualTo(Expected.Get(x)));
         }
 
         public static bool IsEqualTo(this object One, object Another)
@@ -63,8 +79,9 @@ namespace Features
         public static bool IsSimple(this Type Type)
         {
             return Type.Equals(typeof(string)) 
-                || Type.IsValueType 
-                || Type.IsPrimitive;
+                || Type.Equals(typeof(decimal)) 
+                || Type.Equals(typeof(bool)) 
+                || Type.Equals(typeof(DateTime));
         }
 
         public static string NotFoundIn(this object O, IEnumerable<object> Objects)
@@ -116,18 +133,17 @@ namespace Features
             return O.GetType().GetMethod(Method).Invoke(O, Args);
         }
 
-        public static bool HasValue(this object O)
-        {
-            return 
-                O is string ? (O as string).HasValue() :
-                O is DateTime ? (DateTime) O != default(DateTime) :
-                O is decimal ? (decimal) O != 0 :
-                O != null;
-        }
-
         public static bool HasValue(this string s)
         {
             return !string.IsNullOrWhiteSpace(s);
+        }
+
+        public static bool HasValue(this object O)
+        {
+            return 
+                O is DateTime ? (DateTime) O != default(DateTime) :
+                O is decimal ? (decimal) O != 0 :
+                O != null;
         }
 
         public static string Name(this object O)

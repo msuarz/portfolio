@@ -15,7 +15,7 @@ namespace Features
 
         public void Validate_Required_Fields(string[] RequiredFields)
         {
-            foreach (var RequiredField in RequiredFields)
+            foreach (var RequiredField in RequiredFields.Select(x => x.CamelCase()))
             {
                 Assert.IsTrue(proposed.Get(RequiredField).HasValue(), "Bad data, required field " + RequiredField + " should not be empty");
 
@@ -25,7 +25,7 @@ namespace Features
 
         public void Validate_UCD_Fields(string[] UcdFields)
         {
-            foreach (var UcdField in UcdFields)
+            foreach (var UcdField in UcdFields.CamelCase())
                 AssertValidates(proposed, UcdField, "BAD UCD", "Lookup code does not exist.");
         }
 

@@ -4,26 +4,26 @@
 Scenario: Validate PayGroup
 
 	Original
-	[ Pay Group ]
-	| BIWEEKLY	|
+	[ Org Level1 ]
+	| EAST       |
 
 	Proposed
-	[ Pay Group ]
-	| bad value |
+	[ Org Level1 ]
+	| bad value  |
 
 	Update
 
 	Actual
-	[ Pay Group ]
-	| BIWEEKLY  |
+	[ Org Level1 ]
+	| EAST       |
 
 	Status
-	[ Success ]
-	| false	  |
+	[ Field   | Value ]
+	| Success | false |
 
 	Messages
-	[ Property Name  | Message					   ]
-	| RateChangeType | Lookup code does not exist. |
+	[ Property Name | Message                     ]
+	| OrgLevel1     | Lookup code does not exist. |
 
 Scenario: Validate fields
 
@@ -32,8 +32,8 @@ Scenario: Validate fields
 	| PayGroup		 | ""           | The following field is required:  |
 	| PayGroup		 | "01X"		| Lookup code does not exist.		|
 	| TimeClock		 | "1234567890" | Parameter exceeds maximum length. |
-	| ScheduledHours | -1			| Value is not within valid range	|
-	| ScheduledHours | 100000000	| Value is not within valid range	|
+	| ScheduledHours | -1m			| Value is not within valid range	|
+	| ScheduledHours | 100000000m	| Value is not within valid range	|
 
 Scenario: Validate cannot clear Required Fields
 	
