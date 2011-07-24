@@ -46,7 +46,7 @@ Scenario: Update based on Rate
 	
 	Update by Rate
 	[ Rate | Property ]
-	| H	   | Hourly   |
+	| H    | Hourly   |
 	| W    | Weekly   |
 	| P    | Period	  |
 	| Y    | Annual	  |
