@@ -37,23 +37,15 @@ namespace Features
             Original(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    ScheduledHours = 40,        
-                    Hourly = 25,        
                     Annual = 52000,        
-                    PayFrequency = "W"
+                    RateChangeType = "Y"
                 });        
-            Proposed(        
-                new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
-                {        
-                    ScheduledHours = 20,        
-                    Hourly = 50
-                });        
+            Proposed("ScheduledHours", 0.5);        
+            Proposed("Hourly", 2);        
             Update();        
             Actual(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    ScheduledHours = 20,        
-                    Hourly = 50,        
                     Annual = 52000
                 });
         }

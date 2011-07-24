@@ -20,18 +20,19 @@ Scenario: Update based on Scheduled hours
 Scenario: Update Scheduled Hours and Rate Fields
 
 	Original
-	[ Scheduled Hours | Hourly | Annual | PayFrequency ]
-	| 40			  | 25	   | 52000  | W			   |
+	[ Annual | RateChangeType ]
+	| 52000  | Y              |
 
 	Proposed
-	[ Scheduled Hours | Hourly ]
-	| 20			  | 50	   |
+	[ Field	         | Times ]
+	| ScheduledHours | 0.5   |
+	| Hourly         | 2     |
 
 	Update
 
 	Actual
-	[ Scheduled Hours | Hourly | Annual ]
-	| 20			  | 50	   | 52000  |
+	[ Annual ]
+	| 52000  |
 
 Scenario: Update based on Percentages
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -33,6 +34,11 @@ namespace Features
         public void Proposed(DTO DTO)
         {
             DTO.Update(proposed);
+        }
+
+        public void Proposed(string Field, double Times)
+        {
+            proposed.Set(Field, Math.Round((decimal)proposed.Get(Field) * (decimal)Times, 4));
         }
 
         public void Actual(DTO DTO)

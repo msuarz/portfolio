@@ -25,8 +25,6 @@ namespace Features
             original = ((DTO[])Suts[random].Get(DTOsName))[0];
 
             proposed = Clone(original);
-
-            Console.WriteLine(EmployeeNumber);
         }
 
         public override void TearDown() 
