@@ -3,7 +3,7 @@
 
 Scenario: Update Fields
 
-	Update
+    Update
     [ Field            | Value      | Alt Value ]
     | HourlyOrSalaried | "H"        | "S"       |
     | ReasonCode       | "100"      | "101"     |
