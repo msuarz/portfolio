@@ -9,7 +9,7 @@ Scenario: Update based on Scheduled hours
 
 	Proposed
 	[ Scheduled Hours ]
-	| 40			  |
+	| 40              |
 
 	Update
 
@@ -46,7 +46,7 @@ Scenario: Update based on Rate
 	
 	Update by Rate
 	[ Rate | Property ]
-	| H	   | Hourly   |
+	| H    | Hourly   |
 	| W    | Weekly   |
 	| P    | Period	  |
 	| Y    | Annual	  |
