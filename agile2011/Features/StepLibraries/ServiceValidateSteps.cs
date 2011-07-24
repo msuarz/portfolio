@@ -35,11 +35,11 @@ namespace Features
             
             Proposed.Set(Field, Value);
 
-            var Response = Update(Proposed);
+            Update(Proposed);
 
-            Assert.IsTrue(Response.HasErrors, "Update did not fail");
+            Assert.IsTrue(status.HasErrors, "Update did not fail");
 
-            var Messages = Response.Results[0].Messages;
+            var Messages = Results[0].Messages;
 
             AssertPropertyNameOnEveryMessage(Messages);
             Assert.IsFalse(Messages.Any(m => m.PropertyName == "Code"), "Found Generic Property Name in error message");

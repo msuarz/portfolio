@@ -5,9 +5,17 @@ namespace Features
 {
     public partial class ServiceCRUDSteps<Service, DTO, EmployeeDTO>
     {
+        protected virtual void SetUpUpdate(DTO Proposed) { }
+
         public void Update()
         {
             Update(proposed);
+        }
+
+        void Update(DTO Proposed)
+        {
+            SetUpUpdate(Proposed);
+            WriteResponse(Call(x => x.Call("Update" + DTOName, new[] { new[] { Proposed }})));
         }
 
         public void Update(string Field, object Value, object AltValue)
@@ -45,9 +53,9 @@ namespace Features
 
         protected void EnsureUpdate(DTO DTO)
         {
-            var Response = Update(DTO);
+            Update(DTO);
 
-            if (Response.HasErrors) Assert.Fail(EmployeeNumber + Response.Message());
+            if (status.HasErrors) Assert.Fail(EmployeeNumber + ErrorMessage);
         }
     }
 }

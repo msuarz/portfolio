@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using MbUnit.Framework;
 using UltimateSoftware.Foundation.Services.Common.Tests;
 using UltimateSoftware.Foundation.Services.Acceptance.Tests;
@@ -22,9 +23,9 @@ namespace Features
 
         public static string CamelCase(this string Words) 
         {
-            return Words.Split(new [] {' '})
-                .Aggregate(string.Empty, (Result, Current) => 
-                    Result + Current.Capitalize());
+            return Regex.Split(Words, " ")
+                .Select(x => x.Capitalize())
+                .Join(string.Empty);
         }
 
         public static string Ln(this string Line) 
@@ -110,11 +111,16 @@ namespace Features
                 .ForEach(x => Actual.Set(x, Expected.Get(x)));
         }
 
+        public static object Call(this object O, string Method, params object[] Args)
+        {
+            return O.GetType().GetMethod(Method).Invoke(O, Args);
+        }
+
         public static bool HasValue(this object O)
         {
             return 
                 O is string ? (O as string).HasValue() :
-                O is DateTime ? (DateTime)O != default(DateTime) :
+                O is DateTime ? (DateTime) O != default(DateTime) :
                 O is decimal ? (decimal) O != 0 :
                 O != null;
         }

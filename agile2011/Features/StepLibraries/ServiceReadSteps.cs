@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using MbUnit.Framework;
-using UltimateSoftware.Foundation.Services.Core;
 using UltimateSoftware.Foundation.Services.Core.Query;
 
 namespace Features
@@ -13,11 +11,9 @@ namespace Features
         
         public void Query(EmployeeQuery Query) { query = Query; }
 
-        protected FindResponse FindResponse;
-
         public void Find()
         {
-            EmployeesFound = Find(query);
+            Find(query);
         }
 
         public void Find(params EmployeeQuery[] Queries)
@@ -25,15 +21,18 @@ namespace Features
             Queries.ForEach(AssertFindsSomeone);
         }
 
-        void AssertFindsSomeone(EmployeeQuery Query)
+        public void Find(EmployeeQuery Query)
         {
-            var Employees = Find(query);
-
-            if (!Result.Success) Assert.Fail("Could not execute query due to " + Result.Messages[0].Message);
-            Assert.IsTrue(Employees.Count() > 0, "Could not find anybody");
+            ReadResponse(Call(x => x.Call("Find" + DTOsName, Query)));
         }
 
-        protected IEnumerable<EmployeeDTO> EmployeesFound;
+        void AssertFindsSomeone(EmployeeQuery Query)
+        {
+            Find(query);
+
+            if (!OperationResult.Success) Assert.Fail("Could not execute query due to " + OperationResult.Messages[0].Message);
+            Assert.IsTrue(EmployeesFound.Count() > 0, "Could not find anybody");
+        }
 
         public void Employees(EmployeeDTO Employee)
         {
