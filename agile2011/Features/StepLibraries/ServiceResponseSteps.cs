@@ -45,7 +45,7 @@ namespace Features
 
         public void Status(Result Result)
         {
-            Assert.IsTrue(Result.Matches(this.OperationResult));    
+            Assert.IsTrue(Result.Matches(OperationResult));    
         }
 
         public void OperationStatus(Result Result)

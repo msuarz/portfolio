@@ -11,7 +11,7 @@ namespace Features
         public void UpdateFields()
         {         
             Update("HourlyOrSalaried", "H", "S");        
-            Update("ReasonCode", 100, 101);        
+            Update("ReasonCode", "100", "101");        
             Update("FullOrPartTime", "F", "P");        
             Update("JobCode", "DELIV", "SALES");        
             Update("AlternateTitle", "Magician", "Doctor");        
