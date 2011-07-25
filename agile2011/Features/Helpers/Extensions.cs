@@ -76,12 +76,14 @@ namespace Features
             return String.Join(Separator, Values);
         }
 
+        static readonly HashSet<Type> SimpleTypes = new HashSet<Type>
+        {
+            typeof(string), typeof(decimal), typeof(bool), typeof(DateTime)
+        };
+
         public static bool IsSimple(this Type Type)
         {
-            return Type.Equals(typeof(string)) 
-                || Type.Equals(typeof(decimal)) 
-                || Type.Equals(typeof(bool)) 
-                || Type.Equals(typeof(DateTime));
+            return SimpleTypes.Contains(Type);
         }
 
         public static string NotFoundIn(this object O, IEnumerable<object> Objects)
