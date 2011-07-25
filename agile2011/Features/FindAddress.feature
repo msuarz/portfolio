@@ -20,9 +20,9 @@ Scenario: Using Args
 Scenario: Table
 
 	When I search for addresses
-	|Organization Level1|=EAST		  |
-	|Last Name			|like (A%)	  |
-	|Former Name		|not isblank()|
+	| Organization Level1 | =EAST         |
+	| Last Name           | like (A%)     |
+	| Former Name         | not isblank() |
 	I should get the corresponding addresses
 
 Scenario: Fixture
@@ -47,5 +47,5 @@ Scenario: DSL
 
 	Find
 	[ Organization Level1 | Last Name | First Name | Former Name ]
-	| =EAST				  | =Doe	  | =John	   |			 |
-	| in(EAST, WEST)	  |			  |			   | isblank()   |
+	| =EAST               | =Doe      | =John      |             |
+	| in(EAST, WEST)      |           |            | isblank()   |
