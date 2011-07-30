@@ -1,5 +1,3 @@
-using UltimateSoftware.Foundation.Services.Common.Tests;
-
 namespace Features 
 {
     public partial class UpdateCompensation : CompensationSteps
@@ -13,15 +11,54 @@ namespace Features
             AssertSalaryIncreasedTimes((decimal) Times);        
         }
 
-        void Update_by_Rate(string Rate, string Field)
+        void When_the_hourly_rate_increases()
         {
-            proposed.RateChangeType = Rate;
+            
+        }
 
-            proposed.Set(Field, (decimal)proposed.Get(Field) * 2);
+        void Then_the_salary_should_increase()
+        {
+            
+        }
 
-            Update();
+        void When_the_hourly_rate_increases_twice()
+        {
+            
+        }
 
-            AssertSalaryIncreasedTimes(2);
+        void Then_the_salary_should_double()
+        {
+            
+        }
+
+        void Given_the_hourly_rate_is(int HourlyRate)
+        {
+            
+        }
+
+        void and_the_salary_is(int Salary)
+        {
+            
+        }
+
+        void When_the_hourly_rate_changes_to(int HourlyRate)
+        {
+            
+        }
+
+        void Then_the_salary_should_be(int Salary)
+        {
+            
+        }
+
+        void Given_the__is(string Rate, int Value)
+        {
+            
+        }
+
+        void When_the__changes_to(string Rate, int Value)
+        {
+            
         }
     }
 }
