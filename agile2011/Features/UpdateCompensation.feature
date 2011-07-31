@@ -56,29 +56,28 @@ Scenario: Change by Percentages
 Scenario: Update based on Scheduled hours
 
 	Original
-	[ Scheduled Hours | Rate Change Type | Annual ]
-	| 80              | Y                | 50000  |
+	[ Scheduled Hours | Hourly | Annual ]
+	| 40              | 25     | 52000  |
 
 	Proposed
 	[ Scheduled Hours ]
-	| 40              |
+	| 80              |
 
 	Update
 
 	Actual
-	[ Scheduled Hours | Annual ]
-	| 40              | 25000  |
+	[ Scheduled Hours | Hourly | Annual  ]
+	| 80              | 25     | 104000  |
 
 Scenario: Update Scheduled Hours and Rate Fields
 
 	Original
-	[ Annual | RateChangeType ]
-	| 52000  | Y              |
+	[ Hourly ]
+	| 25     |
 
 	Proposed
-	[ Field	         | Times ]
-	| ScheduledHours | 0.5   |
-	| Hourly         | 2     |
+	[ Scheduled Hours | Hourly ]
+	| 20              | 50     |
 
 	Update
 

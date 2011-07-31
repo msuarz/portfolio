@@ -98,21 +98,22 @@ namespace Features
             Original(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    ScheduledHours = 80,        
-                    RateChangeType = "Y",        
-                    Annual = 50000
+                    ScheduledHours = 40,        
+                    Hourly = 25,        
+                    Annual = 52000
                 });        
             Proposed(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    ScheduledHours = 40
+                    ScheduledHours = 80
                 });        
             Update();        
             Actual(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    ScheduledHours = 40,        
-                    Annual = 25000
+                    ScheduledHours = 80,        
+                    Hourly = 25,        
+                    Annual = 104000
                 });
         }
         
@@ -122,11 +123,14 @@ namespace Features
             Original(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    Annual = 52000,        
-                    RateChangeType = "Y"
+                    Hourly = 25
                 });        
-            Proposed("ScheduledHours", 0.5);        
-            Proposed("Hourly", 2);        
+            Proposed(        
+                new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
+                {        
+                    ScheduledHours = 20,        
+                    Hourly = 50
+                });        
             Update();        
             Actual(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
