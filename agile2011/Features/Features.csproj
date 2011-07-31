@@ -56,7 +56,6 @@
     <Reference Include="UltimateSoftware.WcfTypes.Base" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Test.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepLibraries\CompensationSteps.cs" />

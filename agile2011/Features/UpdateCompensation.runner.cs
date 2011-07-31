@@ -24,35 +24,35 @@ namespace Features
         [Test]
         public void ChangeByHourlyRate()
         {         
-            Given_the_hourly_rate_is(20);        
-            and_the_salary_is(50000);        
-            When_the_hourly_rate_changes_to(40);        
-            Then_the_salary_should_be(100000);
+            Given_the_hourly_rate_is(25);        
+            and_the_salary_is(52000);        
+            When_the_hourly_rate_changes_to(50);        
+            Then_the_salary_should_be(104000);
         }
         
         [Test]
         public void ChangeByHourlyRate_1()
         {         
-            Given_the_hourly_rate_is(20);        
-            and_the_salary_is(50000);        
-            When_the_hourly_rate_changes_to(40);        
-            Then_the_salary_should_be(100000);
+            Given_the_hourly_rate_is(25);        
+            and_the_salary_is(52000);        
+            When_the_hourly_rate_changes_to(50);        
+            Then_the_salary_should_be(104000);
         }
         
         [Test]
         public void ChangeByHourlyRate_2()
         {         
-            Given_the_hourly_rate_is(40);        
-            and_the_salary_is(100000);        
-            When_the_hourly_rate_changes_to(20);        
-            Then_the_salary_should_be(50000);
+            Given_the_hourly_rate_is(50);        
+            and_the_salary_is(104000);        
+            When_the_hourly_rate_changes_to(25);        
+            Then_the_salary_should_be(52000);
         }
         
         [Test]
         public void ChangeByHourlyRate_3()
         {         
-            Given_the_hourly_rate_is(40);        
-            and_the_salary_is(100000);        
+            Given_the_hourly_rate_is(50);        
+            and_the_salary_is(104000);        
             When_the_hourly_rate_changes_to(0);        
             Then_the_salary_should_be(0);
         }
@@ -60,10 +60,10 @@ namespace Features
         [Test]
         public void ChangeByRate_1()
         {         
-            Given_the__is("H", 20);        
-            and_the_salary_is(50000);        
-            When_the__changes_to("H", 40);        
-            Then_the_salary_should_be(100000);
+            Given_the__is("H", 25);        
+            and_the_salary_is(52000);        
+            When_the__changes_to("H", 50);        
+            Then_the_salary_should_be(104000);
         }
         
         [Test]
@@ -78,10 +78,10 @@ namespace Features
         [Test]
         public void ChangeByRate_3()
         {         
-            Given_the__is("W", 2000);        
-            and_the_salary_is(80000);        
-            When_the__changes_to("W", 4000);        
-            Then_the_salary_should_be(160000);
+            Given_the__is("W", 1000);        
+            and_the_salary_is(52000);        
+            When_the__changes_to("W", 2000);        
+            Then_the_salary_should_be(104000);
         }
         
         [Test]

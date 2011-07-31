@@ -13,36 +13,36 @@ Scenario: Double hourly rate
 
 Scenario: Change by Hourly Rate
 
-	Given the hourly rate is "20"
-		and the salary is "50000"
-	When the hourly rate changes to "40"
-	Then the salary should be "100000"
+	Given the hourly rate is "25"
+		and the salary is "52000"
+	When the hourly rate changes to "50"
+	Then the salary should be "104000"
 
 Scenario Outline: Change by Hourly Rate
 
-	Given the hourly rate is "Original hourly rate"
-		and the salary is "Original salary"
-	When the hourly rate changes to "Proposed hourly rate"
+	Given the hourly rate is "Original Hourly"
+		and the salary is "Original Salary"
+	When the hourly rate changes to "Proposed Hourly"
 	Then the salary should be "Actual Salary"
 
 	Examples:
-	| Original hourly rate | Original salary | Proposed hourly rate | Actual Salary |
-	| 20                   | 50000           | 40                   | 100000        | 
-	| 40                   | 100000          | 20                   | 50000         | 
-	| 40                   | 100000          | 0                    | 0             | 
+	| Original Hourly | Original Salary | Proposed Hourly | Actual Salary |
+	| 25              | 52000           | 50              | 104000        | 
+	| 50              | 104000          | 25              | 52000         | 
+	| 50              | 104000          | 0               | 0             | 
 
 Scenario Outline: Change by Rate
 
-	Given the "Rate" is "Original rate"
-		and the salary is "Original salary"
-	When the "Rate" changes to "Proposed rate"
+	Given the "Rate" is "Original Rate"
+		and the salary is "Original Salary"
+	When the "Rate" changes to "Proposed Rate"
 	Then the salary should be "Actual Salary"
 
 	Examples:
-	| Rate | Original rate | Original salary | Proposed rate | Actual Salary |
-	| H    | 20            | 50000           | 40            | 100000        | 
+	| Rate | Original Rate | Original Salary | Proposed Rate | Actual Salary |
+	| H    | 25            | 52000           | 50            | 104000        | 
 	| Y    | 100000        | 100000          | 50000         | 50000         | 
-	| W    | 2000          | 80000           | 4000          | 160000        | 
+	| W    | 1000          | 52000           | 2000          | 104000        | 
 
 
 Scenario: Change by Percentages
@@ -51,7 +51,7 @@ Scenario: Change by Percentages
 	[ Percent | Times ]
 	| 100	  | 2	  |
 	| 200	  | 3	  |
-	| -50	  | 0.5	  |
+	| -50	  | 0.5   |
 
 Scenario: Update based on Scheduled hours
 

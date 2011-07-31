@@ -10,9 +10,15 @@ namespace Features
         {
             Proposed.EffectiveDate = DateTime.Now;
 
-            if (Proposed.RateChangeType.HasValue() || Proposed.PercentChange != 0) return;
-            
-            Proposed.RateChangeType = "H";
+            if (Proposed.RateChangeType.IsEmpty() 
+                && Proposed.PercentChange == 0) 
+                Proposed.RateChangeType = "H";
+        }
+
+        protected override void SetUpOriginal(Compensation DTO) 
+        {
+            if (DTO.ScheduledHours == 0
+                && DTO.PercentChange == 0) DTO.ScheduledHours = 40;
         }
 
         protected override void ClearWriteOnlyFields(Compensation DTO) 

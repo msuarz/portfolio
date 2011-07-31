@@ -76,6 +76,11 @@ namespace Features
             return String.Join(Separator, Values);
         }
 
+        public static string JoinLn(this IEnumerable<string> Values) 
+        {
+            return String.Join(Environment.NewLine, Values);
+        }
+
         static readonly HashSet<Type> SimpleTypes = new HashSet<Type>
         {
             typeof(string), typeof(decimal), typeof(bool), typeof(DateTime)

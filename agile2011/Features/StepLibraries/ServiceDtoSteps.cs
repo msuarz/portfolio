@@ -20,7 +20,7 @@ namespace Features
 
         public virtual void Original(DTO DTO)
         {
-            DTO.Update(proposed);
+            Proposed(DTO);
             
             EnsureUpdate(proposed);
             
@@ -31,8 +31,11 @@ namespace Features
             DTO.ShouldMatch(proposed);
         }
 
+        protected virtual void SetUpOriginal(DTO DTO) {}
+
         public void Proposed(DTO DTO)
         {
+            SetUpOriginal(DTO);
             DTO.Update(proposed);
         }
 
