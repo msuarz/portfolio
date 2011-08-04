@@ -44,15 +44,6 @@ Scenario Outline: Change by Rate
 	| Y    | 100000        | 100000          | 50000         | 50000         | 
 	| W    | 1000          | 52000           | 2000          | 104000        | 
 
-
-Scenario: Change by Percentages
-
-	Update by Percent & Salary increases X times
-	[ Percent | Times ]
-	| 100	  | 2	  |
-	| 200	  | 3	  |
-	| -50	  | 0.5   |
-
 Scenario: Update based on Scheduled hours
 
 	Original
@@ -72,8 +63,8 @@ Scenario: Update based on Scheduled hours
 Scenario: Update Scheduled Hours and Rate Fields
 
 	Original
-	[ Hourly ]
-	| 25     |
+	[ Scheduled Hours | Hourly | Annual ]
+	| 40              | 25     | 52000  |
 
 	Proposed
 	[ Scheduled Hours | Hourly ]

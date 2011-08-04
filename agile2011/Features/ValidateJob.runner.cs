@@ -8,7 +8,7 @@ namespace Features
 
         
         [Test]
-        public void ValidatePayGroup()
+        public void ValidateOrgLevel1()
         {         
             Original(        
                 new UltimateSoftware.Foundation.Services.JobDomain.WcfTypes.Job

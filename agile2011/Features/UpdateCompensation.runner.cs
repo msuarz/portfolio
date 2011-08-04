@@ -85,14 +85,6 @@ namespace Features
         }
         
         [Test]
-        public void ChangeByPercentages()
-        {         
-            Update_by_Percent___Salary_increases_X_times(100, 2);        
-            Update_by_Percent___Salary_increases_X_times(200, 3);        
-            Update_by_Percent___Salary_increases_X_times(-50, 0.5);
-        }
-        
-        [Test]
         public void UpdateBasedOnScheduledHours()
         {         
             Original(        
@@ -123,7 +115,9 @@ namespace Features
             Original(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation
                 {        
-                    Hourly = 25
+                    ScheduledHours = 40,        
+                    Hourly = 25,        
+                    Annual = 52000
                 });        
             Proposed(        
                 new UltimateSoftware.Foundation.Services.CompensationDomain.WcfTypes.Compensation

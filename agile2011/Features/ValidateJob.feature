@@ -1,7 +1,7 @@
 ﻿Feature: Validate Job
 	All fields should be validated before submiting an Employee Job change
 
-Scenario: Validate PayGroup
+Scenario: Validate Org Level1
 
 	Original
 	[ Org Level1 ]
