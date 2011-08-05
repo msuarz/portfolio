@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gallio, Version=3.2.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL" />
-    <Reference Include="MbUnit, Version=3.2.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL" />
+    <Reference Include="Gallio">
+      <HintPath>C:\projects\UltiPro.Net\VendorBin\Gallio\Gallio.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit">
+      <HintPath>C:\projects\UltiPro.Net\VendorBin\Gallio\MbUnit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,20 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorSpecs.runner.cs">
+    <Compile Include="Calculator.steps.cs">
+      <DependentUpon>Calculator.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Calculator.runner.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CalculatorSpecs.feature</DependentUpon>
-    </Compile>
-    <Compile Include="CalculatorSpecs.steps.cs">
-      <DependentUpon>CalculatorSpecs.feature</DependentUpon>
+      <DependentUpon>Calculator.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CalculatorSpecs.feature">
+    <None Include="Calculator.feature">
       <Generator>RaconteurSingleFileGenerator</Generator>
-      <LastGenOutput>CalculatorSpecs.runner.cs</LastGenOutput>
+      <LastGenOutput>Calculator.runner.cs</LastGenOutput>
     </None>
     <None Include="raconteur.config">
       <SubType>Designer</SubType>

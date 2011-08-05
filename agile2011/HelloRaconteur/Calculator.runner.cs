@@ -3,7 +3,7 @@ using MbUnit.Framework;
 namespace HelloRaconteur 
 {
     [TestFixture]
-    public partial class CalculatorSpecs 
+    public partial class Calculator 
     {
 
         

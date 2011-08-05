@@ -2,7 +2,7 @@ using MbUnit.Framework;
 
 namespace HelloRaconteur 
 {
-    public partial class CalculatorSpecs
+    public partial class Calculator
     {
         int result;
 

@@ -1,5 +1,4 @@
-﻿Feature: CalculatorSpecs
-	Description
+﻿Feature: Calculator
 
 Scenario: Should add two numbers
 

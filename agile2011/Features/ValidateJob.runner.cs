@@ -26,7 +26,12 @@ namespace Features
                 {        
                     OrgLevel1 = "EAST"
                 });        
-            Status("Success", false);        
+            Status(        
+                new UltimateSoftware.Foundation.Services.Core.Result
+                {        
+                    Success = false,        
+                    HasErrors = true
+                });        
             Messages(        
                 new UltimateSoftware.Foundation.Services.Core.OperationMessage
                 {        
@@ -38,7 +43,7 @@ namespace Features
         [Test]
         public void ValidateFields()
         {         
-            Validate("PayGroup", "", "The following field is required:");        
+            Validate("PayGroup", null, "The following field is required:");        
             Validate("PayGroup", "01X", "Lookup code does not exist.");        
             Validate("TimeClock", "1234567890", "Parameter exceeds maximum length.");        
             Validate("ScheduledHours", -1m, "Value is not within valid range");        

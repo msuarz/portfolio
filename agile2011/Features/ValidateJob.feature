@@ -18,8 +18,8 @@ Scenario: Validate Org Level1
 	| EAST       |
 
 	Status
-	[ Field   | Value ]
-	| Success | false |
+	[ Success | Has Errors ]
+	| false   | true       |
 
 	Messages
 	[ Property Name | Message                     ]
@@ -29,7 +29,7 @@ Scenario: Validate fields
 
 	Validate
 	[ Field          | Value        | Error                             ]
-	| PayGroup       | ""           | The following field is required:  |
+	| PayGroup       | null         | The following field is required:  |
 	| PayGroup       | "01X"        | Lookup code does not exist.       |
 	| TimeClock      | "1234567890" | Parameter exceeds maximum length. |
 	| ScheduledHours | -1m          | Value is not within valid range   |
