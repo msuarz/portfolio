@@ -28,7 +28,7 @@ namespace Features
             AssertSalaryIncreasedTimes(2);
         }
 
-        void When_the_hourly_rate_increases_twice()
+        void When_the_hourly_rate_doubles()
         {
             proposed.Hourly *= 2;
 

@@ -17,7 +17,7 @@ namespace Features
         [Test]
         public void DoubleHourlyRate()
         {         
-            When_the_hourly_rate_increases_twice();        
+            When_the_hourly_rate_doubles();        
             Then_the_salary_should_double();
         }
         

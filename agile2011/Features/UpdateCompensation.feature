@@ -1,4 +1,4 @@
-﻿Feature: Update Compensation
+Feature: Update Compensation
 	The Employee Compensation Service should allow to update Compensations
 
 Scenario: Increase Salary
@@ -8,7 +8,7 @@ Scenario: Increase Salary
 
 Scenario: Double hourly rate
 
-	When the hourly rate increases twice
+	When the hourly rate doubles
 	Then the salary should double
 
 Scenario: Change by Hourly Rate

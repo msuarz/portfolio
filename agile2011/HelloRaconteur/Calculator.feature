@@ -1,4 +1,4 @@
-﻿Feature: Calculator
+Feature: Calculator
 
 Scenario: Should add two numbers
 
