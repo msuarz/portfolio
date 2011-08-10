@@ -46,21 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.steps.cs">
-      <DependentUpon>Calculator.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Calculator.runner.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Calculator.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Calculator.feature">
-      <Generator>RaconteurSingleFileGenerator</Generator>
-      <LastGenOutput>Calculator.runner.cs</LastGenOutput>
-    </None>
     <None Include="raconteur.config">
       <SubType>Designer</SubType>
     </None>
