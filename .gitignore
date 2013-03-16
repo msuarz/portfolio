@@ -1,10 +1,3 @@
 local/
-*.suo
-*.user
-bin/
-obj/
-*ReSharper*/
-*.ReSharper
-testResults/
-TestResults/
-App.config
+~$*.doc
+*.tmp
